@@ -1,9 +1,14 @@
 {
-  "name": "@tingme/module-common",
-  "version": "0.0.1",
+  "name": "@tingme-io/module-common",
+  "version": "0.0.3",
   "description": "",
   "author": "Victor Phung",
   "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

@@ -1,5 +1,5 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsInt, IsOptional, Max, Min } from 'class-validator';
+import { IsEnum, IsOptional } from 'class-validator';
 import { Order } from '@configs/common/shared.enum';
 import { Type } from 'class-transformer';
 export class PaginationParams {
@@ -13,8 +13,6 @@ export class PaginationParams {
     default: 1,
   })
   @Type(() => Number)
-  @IsInt()
-  @Min(1)
   @IsOptional()
   readonly page?: number = 1;
 
@@ -24,9 +22,6 @@ export class PaginationParams {
     default: 10,
   })
   @Type(() => Number)
-  @IsInt()
-  @Min(1)
-  @Max(50)
   @IsOptional()
   readonly limit?: number = 10;
 }
