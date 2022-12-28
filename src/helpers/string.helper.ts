@@ -1,4 +1,5 @@
 import Web3 from 'web3';
+import * as crypto from 'crypto';
 
 const UPPER_STRING_POOL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWER_STRING_POOL = 'abcdefghijklmnopqrstuvwxyz';
@@ -60,5 +61,9 @@ export class StringHelper {
 
   public static toChecksumAddress(address: string) {
     return Web3.utils.toChecksumAddress(address);
+  }
+
+  public static md5(input: string): string {
+    return crypto.createHash('md5').update(input).digest('hex');
   }
 }
