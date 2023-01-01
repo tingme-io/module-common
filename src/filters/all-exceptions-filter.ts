@@ -6,7 +6,7 @@ import {
   ArgumentsHost,
   HttpStatus,
 } from '@nestjs/common';
-import { AppError } from '@configs/common/app-error';
+import { AppError } from '../configs/common/app-error';
 import { ErrorList, ERROR_CODE } from '@configs/common/codes';
 
 @Catch()

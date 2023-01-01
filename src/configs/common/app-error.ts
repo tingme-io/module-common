@@ -1,23 +1,23 @@
 import { HttpStatus } from '@nestjs/common';
-import { ERROR_CODE, ErrorList, IErrorDetails } from './codes';
+import { IError, IErrorDetails } from './codes';
 
 export class AppError extends Error {
-  protected errorCode: ERROR_CODE;
+  protected errorCode: string;
   protected messageError: string;
   protected statusCode: HttpStatus;
   errors?: IErrorDetails[];
   additionalData?: any;
 
   constructor(
-    errorCode: ERROR_CODE,
+    error: IError,
     messageError?: string,
     errors?: IErrorDetails[],
     additionalData?: any,
   ) {
-    const error = ErrorList[errorCode] || ErrorList[ERROR_CODE.SERVER_ERROR];
+    // const error = ErrorList[errorCode] || ErrorList[ERROR_CODE.SERVER_ERROR];
     const message = messageError || error.error;
     super(message);
-    this.errorCode = errorCode;
+    this.errorCode = error.errorCode;
     this.statusCode = error.code;
     this.name = AppError.name;
     this.message = message;

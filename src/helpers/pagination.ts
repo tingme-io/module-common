@@ -1,12 +1,12 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEnum, IsOptional } from 'class-validator';
-import { Order } from '@configs/common/shared.enum';
+import { Order } from '../configs/common/shared.enum';
 import { Type } from 'class-transformer';
 export class PaginationParams {
   @ApiPropertyOptional({ enum: Order, default: Order.ASC })
   @IsEnum(Order)
   @IsOptional()
-  readonly order?: Order = Order.ASC;
+  order?: Order = Order.ASC;
 
   @ApiPropertyOptional({
     minimum: 1,
@@ -14,7 +14,7 @@ export class PaginationParams {
   })
   @Type(() => Number)
   @IsOptional()
-  readonly page?: number = 1;
+  page?: number = 1;
 
   @ApiPropertyOptional({
     minimum: 1,
@@ -23,5 +23,5 @@ export class PaginationParams {
   })
   @Type(() => Number)
   @IsOptional()
-  readonly limit?: number = 10;
+  limit?: number = 10;
 }

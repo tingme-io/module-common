@@ -30,6 +30,12 @@ enum ERROR_CODE {
   INSUFFICIENT_BALANCE = 'INSUFFICIENT_BALANCE',
 }
 
+export interface IError {
+  code: HttpStatus;
+  error: string;
+  errorCode: string;
+}
+
 const ErrorList = {
   [ERROR_CODE.SERVER_ERROR]: {
     code: HttpStatus.INTERNAL_SERVER_ERROR,
@@ -50,6 +56,7 @@ const ErrorList = {
   [ERROR_CODE.UNAUTHORIZED]: {
     code: HttpStatus.UNAUTHORIZED,
     error: 'E_UNAUTHORIZED',
+    errorCode: ERROR_CODE.UNAUTHORIZED,
   },
   [ERROR_CODE.CONFLICT]: {
     code: HttpStatus.CONFLICT,
@@ -70,6 +77,7 @@ const ErrorList = {
   [ERROR_CODE.VALIDATION_FAILED]: {
     code: HttpStatus.BAD_REQUEST,
     error: 'Validation failed',
+    errorCode: ERROR_CODE.VALIDATION_FAILED,
   },
   [ERROR_CODE.UPLOAD_FILE_FAILED]: {
     code: HttpStatus.BAD_REQUEST,
@@ -79,33 +87,40 @@ const ErrorList = {
     code: HttpStatus.NOT_FOUND,
     error: 'Event not found',
   },
-  [ERROR_CODE.EVENT_NOT_EXISTS]: {
-    code: HttpStatus.UNPROCESSABLE_ENTITY,
+  [ERROR_CODE.INVALID_DATE]: {
+    code: HttpStatus.BAD_REQUEST,
     error: 'Event not exists',
+    errorCode: ERROR_CODE.INVALID_DATE,
   },
   [ERROR_CODE.CONFIG_NOT_FOUND]: {
     code: HttpStatus.NOT_FOUND,
     error: 'Config not found',
+    errorCode: ERROR_CODE.CONFIG_NOT_FOUND,
   },
   [ERROR_CODE.ACCOUNT_NOT_FOUND]: {
     code: HttpStatus.NOT_FOUND,
     error: 'Account not found',
+    errorCode: ERROR_CODE.ACCOUNT_NOT_FOUND,
   },
   [ERROR_CODE.ACCOUNT_NOT_EXISTS]: {
     code: HttpStatus.UNPROCESSABLE_ENTITY,
     error: 'Account not existed',
+    errorCode: ERROR_CODE.ACCOUNT_NOT_EXISTS,
   },
   [ERROR_CODE.ACCOUNT_ALREADY_EXISTED]: {
     code: HttpStatus.CONFLICT,
     error: 'Account already existed',
+    errorCode: ERROR_CODE.ACCOUNT_ALREADY_EXISTED,
   },
   [ERROR_CODE.WALLET_NOT_EXISTS]: {
     code: HttpStatus.UNPROCESSABLE_ENTITY,
     error: 'Wallet not existed',
+    errorCode: ERROR_CODE.WALLET_NOT_EXISTS,
   },
   [ERROR_CODE.INSUFFICIENT_BALANCE]: {
     code: HttpStatus.BAD_REQUEST,
     error: 'Insufficient balance',
+    errorCode: ERROR_CODE.INSUFFICIENT_BALANCE,
   },
 };
 

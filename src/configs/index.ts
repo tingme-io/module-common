@@ -7,3 +7,4 @@ export * from './transformers/array.transformer';
 export * from './transformers/boolean.transformer';
 export * from './transformers/date.transformer';
 export * from './transformers/lowercase.transformer';
+export * from './transformers/trim.transformer';

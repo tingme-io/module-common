@@ -1,5 +1,5 @@
 import { HttpStatus } from '@nestjs/common';
-import { ERROR_CODE, ErrorList } from 'configs/common/codes';
+import { ERROR_CODE, ErrorList } from '../configs/common/codes';
 import { Response } from 'express';
 
 export function successResponse(
