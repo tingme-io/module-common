@@ -66,4 +66,26 @@ export class StringHelper {
   public static md5(input: string): string {
     return crypto.createHash('md5').update(input).digest('hex');
   }
+
+  public static removeVietnamese(intput: string): string {
+    intput = intput.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+    intput = intput.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+    intput = intput.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+    intput = intput.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+    intput = intput.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+    intput = intput.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+    intput = intput.replace(/đ/g, 'd');
+    intput = intput.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, 'A');
+    intput = intput.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, 'E');
+    intput = intput.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, 'I');
+    intput = intput.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, 'O');
+    intput = intput.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, 'U');
+    intput = intput.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, 'Y');
+    intput = intput.replace(/Đ/g, 'D');
+    return intput;
+  }
+
+  public static formatHashtag(value: string): string {
+    return StringHelper.removeVietnamese(value).replace(/\s+/g, '');
+  }
 }
