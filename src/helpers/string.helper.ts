@@ -7,6 +7,8 @@ const RANDOM_STRING_POOL = UPPER_STRING_POOL + LOWER_STRING_POOL;
 const RANDOM_NUMBER_POOL = '0123456789';
 const UPPER_NUMBER_POOL = UPPER_STRING_POOL + RANDOM_NUMBER_POOL;
 const LOWER_NUMBER_POOL = LOWER_STRING_POOL + RANDOM_NUMBER_POOL;
+const URL_REGEX =
+  /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,7}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 
 export enum RandomTypes {
   STRING_ONLY = 'STRING_ONLY',
@@ -87,5 +89,9 @@ export class StringHelper {
 
   public static formatHashtag(value: string): string {
     return StringHelper.removeVietnamese(value).replace(/\s+/g, '');
+  }
+
+  public static isValidUrl(email: string): boolean {
+    return URL_REGEX.test(email);
   }
 }
