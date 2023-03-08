@@ -8,7 +8,7 @@ const RANDOM_NUMBER_POOL = '0123456789';
 const UPPER_NUMBER_POOL = UPPER_STRING_POOL + RANDOM_NUMBER_POOL;
 const LOWER_NUMBER_POOL = LOWER_STRING_POOL + RANDOM_NUMBER_POOL;
 const URL_REGEX =
-  /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,7}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+  /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,24}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 
 export enum RandomTypes {
   STRING_ONLY = 'STRING_ONLY',
